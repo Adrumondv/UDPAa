@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
-    private EditText txtHoras, txtDias;
+    private EditText txtHoras, txtDias, txtVHoras, txtDescuento, txtSueldoBase;
     private CheckBox chbxPago, chbxDcto;
     private RadioGroup rgRedondeo;
     private RadioButton rbRedondeo, rbNoRedondeo;
@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         btnCalcular = (Button)findViewById(R.id.btnCalcular);
         lbl_dcto = (TextView)findViewById(R.id.lbl_dcto);
         lbl_pago = (TextView)findViewById(R.id.lbl_pago);
+        txtVHoras = findViewById(R.id.txtVHoras);
+        txtDescuento = findViewById(R.id.txtDescuento);
+        txtSueldoBase = findViewById(R.id.txtSueldoBase);
 
     }
 
@@ -43,18 +46,19 @@ public class MainActivity extends AppCompatActivity {
 
         int horas = Integer.parseInt(txtHoras.getText().toString());
         int dias = Integer.parseInt(txtDias.getText().toString());
-        int horas_mensuales = horas*dias;
-        double pago = horas_mensuales*10;
-        double descuento = 0.00;
-        double sueldo_base = 1000.00;
+        int monto_hora = Integer.parseInt(txtVHoras.getText().toString());
+        double descuento = Integer.parseInt(txtDescuento.getText().toString());
+        double sueldo_base = Integer.parseInt(txtSueldoBase.getText().toString());
+        double pago = sueldo_base + (horas*dias*monto_hora);
+        double dtotal =(pago*descuento/100);
+
 
         if(chbxPago.isChecked() == true){
             lbl_pago.setText(String.valueOf(pago));
         }
-        if(chbxDcto.isChecked() == true && pago >1000){
+        if(chbxDcto.isChecked() == true && pago >sueldo_base){
 
-            descuento = pago - (pago*0.1);
-            lbl_dcto.setText(String.valueOf(descuento));
+            lbl_dcto.setText(String.valueOf(dtotal));
         }
         if (rgRedondeo.getCheckedRadioButtonId() == R.id.rbRedondeo) {
             int pago_redondeo = (int)Math.round(pago);
@@ -71,16 +75,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 txtDias.getText().clear();
                 txtHoras.getText().clear();
+                txtDescuento.getText().clear();
+                txtSueldoBase.getText().clear();
+                txtVHoras.getText().clear();
                 rgRedondeo.clearCheck();
                 chbxDcto.toggle();
                 chbxPago.toggle();
                 lbl_dcto.setText("");
                 lbl_pago.setText("");
-
-
             }
         });
 

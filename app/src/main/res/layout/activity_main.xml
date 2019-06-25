@@ -36,8 +36,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingrese Horas"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_below="@+id/imageView"
+     android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingrese Valor Hora"
+        android:textSize="15dp"
+        android:layout_below="@+id/imageView"
+        android:layout_marginLeft="200dp"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingrese Sueldo Base"
+        android:textSize="15dp"
+        android:layout_below="@+id/txtDias"
         android:layout_marginLeft="30dp"/>
 
     <TextView
@@ -45,9 +63,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingrese Días"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_below="@id/txtHoras"
         android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingrese Descuento"
+        android:textSize="15dp"
+        android:layout_below="@id/txtHoras"
+        android:layout_marginLeft="200dp"/>
 
     <EditText
         android:id="@+id/txtHoras"
@@ -59,6 +86,24 @@
         android:digits="0123456789"/>
 
     <EditText
+        android:id="@+id/txtVHoras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView3"
+        android:inputType="number"
+        android:digits="0123456789"
+        android:layout_marginLeft="200dp"/>
+
+    <EditText
+        android:id="@+id/txtSueldoBase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView7"
+        android:inputType="number"
+        android:layout_marginLeft="30dp"
+        android:digits="0123456789"/>
+
+    <EditText
         android:id="@+id/txtDias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,12 +112,31 @@
         android:inputType="number"
         android:digits="0123456789"/>
 
+    <EditText
+        android:id="@+id/txtDescuento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_marginLeft="200dp"
+        android:inputType="number"
+        android:digits="0123456789"/>
+
+    <TextView
+        android:id="@+id/txtView8"
+        android:text="%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="250dp"
+        />
+
     <CheckBox
         android:id="@+id/chbxDcto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descuento"
-        android:layout_below="@id/txtDias"
+        android:layout_below="@id/txtSueldoBase"
         android:layout_marginLeft="30dp" />
 
     <CheckBox
@@ -115,7 +179,7 @@
         android:layout_height="wrap_content"
         android:text="Descuento:"
         android:textColor="#3949AB"
-        android:textSize="24sp"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:layout_below="@id/rgRedondeo"
         android:layout_marginLeft="30dp"
@@ -135,7 +199,7 @@
         android:layout_height="wrap_content"
         android:text="Sueldo:"
         android:textColor="#3949AB"
-        android:textSize="24sp"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:layout_below="@id/descuento"
         android:layout_marginLeft="30dp"/>
@@ -155,7 +219,7 @@
         android:onClick="calcular"
         android:text="Calcular"
         android:layout_below="@id/lbl_pago"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -165,7 +229,7 @@
         android:onClick="limpiar"
         android:text="Limpiar"
         android:layout_below="@id/btnCalcular"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -173,7 +237,6 @@
         android:text="Alexander Fuentes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnLimpiar"/>
 
